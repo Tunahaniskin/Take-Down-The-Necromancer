@@ -6,8 +6,8 @@ const canvas = document.getElementById("gameCanvas");
 const ctx = canvas.getContext("2d");
 
 function resizeCanvas() {
-  canvas.width = window.innerWidth;
-  canvas.height = window.innerHeight;
+  canvas.width = 1200;
+  canvas.height = 800;
 }
 window.addEventListener('resize', resizeCanvas);
 resizeCanvas(); // sayfa açılır açılmaz çalıştır
@@ -53,4 +53,3 @@ player.HealthIcon.onload = () => {
 window.onload = function() {
   document.getElementById("gameCanvas").style.zoom = "2";
 };
-
