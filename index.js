@@ -50,3 +50,7 @@ player.HealthIcon.onload = () => {
   requestAnimationFrame(drawAll);
 };
 
+window.onload = function() {
+  document.getElementById("gameCanvas").style.zoom = "2";
+};
+
