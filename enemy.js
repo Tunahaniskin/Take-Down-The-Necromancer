@@ -1,12 +1,12 @@
 export class Enemy {
-  constructor(x = 390, y = 150) {
+  constructor(x = 780, y = 300) {
     this.x = x;
     this.y = y;
-    this.health = 20;
-    this.healthBarWidth = 200;
-    this.healthBarHeight = 25;
+    this.health = 40;
+    this.healthBarWidth = 400;
+    this.healthBarHeight = 50;
     this.healthBarX = x;
-    this.healthBarY = y - 100;
+    this.healthBarY = y - 200;
 
     // Health icon animasyon değişkenleri
     this.HealthIcon = new Image();
@@ -19,15 +19,15 @@ export class Enemy {
     this.HealthLastFrameTime = 0;
     this.HealthFrameDuration = 150;
     this.HealthPosX = this.healthBarX;
-    this.HealthPosY = this.y - 100;
+    this.HealthPosY = this.y - 200;
   }
   drawEnemy(ctx) {
     ctx.fillStyle = "rgb(102, 11, 11)";
-    ctx.fillRect(this.x, this.y, 70, 80);
+    ctx.fillRect(this.x, this.y, 140, 160);
   }
   drawHealthBar(ctx) {
     ctx.fillStyle = "rgb(108, 100, 71)";
-    ctx.fillRect(this.x + 32 , this.y - 100, this.healthBarWidth , this.healthBarHeight);
+    ctx.fillRect(this.x + 64 , this.y - 200, this.healthBarWidth , this.healthBarHeight);
   }
   drawHealthIcon(ctx,timestamp) {
     //ctx.fillStyle = "red";
@@ -48,14 +48,14 @@ export class Enemy {
       this.HealthRowIndex * this.HealthFrameHeight,    // Kaynak Y (satır indexine göre)
       this.HealthFrameWidth, this.HealthFrameHeight,   // Kaynak genişlik ve yükseklik
       this.HealthPosX, this.HealthPosY,                // Tuvalde çizilecek X ve Y
-      32, 32                                           // Çizilecek genişlik ve yükseklik
+      64 , 64                                           // Çizilecek genişlik ve yükseklik
     );
     
   }
   drawComboStatus(ctx) {
     ctx.fillStyle = "black";
-    ctx.font = "20px Arial";
-    ctx.fillText("Combo : ", this.x + 90, this.y - 20 );
+    ctx.font = "40px Arial";
+    ctx.fillText("Combo : ", this.x + 180, this.y - 40 );
 
     
   }

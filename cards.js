@@ -1,28 +1,28 @@
 
 export class Cards {
-  constructor(x = 120, y = 250) {
+  constructor(x = 240, y = 500) {
     this.x = x;
     this.y = y;
 
     
-    this.MaincardWidth = 81;
-    this.MaincardHeight = 81;
-    this.MaincardSpacing = 16; //yatay
-    this.MainCardSpacingHeight = 10; //dikey
+    this.MaincardWidth = 162;
+    this.MaincardHeight = 162;
+    this.MaincardSpacing = 32; //yatay
+    this.MainCardSpacingHeight = 20; //dikey
     this.MainstartX = this.x + this.MaincardSpacing;
     this.MainstartY = this.y + this.MainCardSpacingHeight;
 
-    this.EnemycardWidth = 66;
-    this.EnemycardHeight = 66;
-    this.EnemycardSpacing = 8; // yatay
-    this.EnemystartX = 390 + 90 + this.EnemycardSpacing; //enemy_x = 390
-    this.EnemystartY = 150 + 7; //enemy_y = 150
+    this.EnemycardWidth = 132;
+    this.EnemycardHeight = 132;
+    this.EnemycardSpacing = 16; // yatay
+    this.EnemystartX = 780 + 180 + this.EnemycardSpacing; //enemy_x = 780
+    this.EnemystartY = 300 + 14; //enemy_y = 300
 
-    this.PlayercardWidth = 66;
-    this.PlayercardHeight = 66;
-    this.PlayercardSpacing = 8;
-    this.PlayerstartX = 280 - 250 + this.PlayercardSpacing; // player_x = 280
-    this.PlayerstartY = 150 + 7;  // player_y = 150,  playercardspacingheight = 7
+    this.PlayercardWidth = 132;
+    this.PlayercardHeight = 132;
+    this.PlayercardSpacing = 16;
+    this.PlayerstartX = 560 - 500 + this.PlayercardSpacing; // player_x = 560
+    this.PlayerstartY = 300 + 14;  // player_y = 300,  playercardspacingheight = 14
 
     this.mainCards = [];  //seçim yapacağımız 5 kart ve her kartın 6 tane bölmesi olan dizi
     for (let i = 0; i < 5; i++) {
@@ -71,7 +71,7 @@ export class Cards {
   }
  drawCardsBar(ctx) {
     ctx.fillStyle = "rgb(87, 96, 56)";
-    ctx.fillRect(this.x, this.y, 501, 101);
+    ctx.fillRect(this.x, this.y, 1002, 202);
 
     ctx.strokeStyle = "black";
     ctx.lineWidth = 2;
@@ -100,7 +100,7 @@ export class Cards {
   }
   drawPlayerCardsBar(ctx, player_x, player_y) {
     ctx.fillStyle = "rgb(87, 96, 56)";
-    ctx.fillRect(player_x - 250, player_y, 230, 80); 
+    ctx.fillRect(player_x - 500, player_y, 460, 160); 
 
     ctx.strokeStyle = "black";
     ctx.lineWidth = 2;
@@ -128,7 +128,7 @@ export class Cards {
   }
   drawEnemyCardsBar(ctx, enemy_x, enemy_y) {
     ctx.fillStyle = "rgb(87, 96, 56)";
-    ctx.fillRect(enemy_x + 90, enemy_y, 230, 80); 
+    ctx.fillRect(enemy_x + 180, enemy_y, 460, 160); 
 
     ctx.strokeStyle = "black";
     ctx.lineWidth = 2;
@@ -295,29 +295,29 @@ export class Cards {
     for(let i = 0 ; i < 5 ; i++) { // main kartların iconlarını çizdirme
       let j = 0;
       ctx.fillStyle = "black";
-      ctx.font = "14px Arial";
+      ctx.font = "28px Arial";
       const cardX = this.MainstartX + i * (this.MaincardWidth + this.MaincardSpacing);
 
       
       for(; j < 3; j++) {
         if(this.mainCards[i][j] === 1){ // boyd çizdirme
           const cardY = this.MainstartY + (this.MaincardHeight / 3) * j + (this.MaincardHeight / 3) / 2;
-          ctx.fillText("Body", cardX + 1, cardY );
+          ctx.fillText("Body", cardX + 2, cardY );
         }
       }
       for( ; j < 6; j++) {
         if(this.mainCards[i][j] === 1){   // sword gelirse
           const cardY = this.MainstartY + (this.MaincardHeight / 3) * (j - 3) + (this.MaincardHeight / 3) / 2;
-          ctx.fillText("sword", cardX + this.MaincardWidth / 2 + 2, cardY );    
+          ctx.fillText("Sword", cardX + this.MaincardWidth / 2 + 4, cardY );    
         }
          if(this.mainCards[i][j] === 3){   // shield gelirse
           const cardY = this.MainstartY + (this.MaincardHeight / 3) * (j - 3) + (this.MaincardHeight / 3) / 2;
-          ctx.fillText("shield", cardX + this.MaincardWidth / 2 + 2, cardY );    
+          ctx.fillText("Shield", cardX + this.MaincardWidth / 2 + 4, cardY );    
         }
          if(this.mainCards[i][j] === 5){   // breaker gelirse
-          ctx.font = "10px Arial";
+          ctx.font = "20px Arial";
           const cardY = this.MainstartY + (this.MaincardHeight / 3) * (j - 3) + (this.MaincardHeight / 3) / 2;
-          ctx.fillText("breaker", cardX + this.MaincardWidth / 2 + 2, cardY );    
+          ctx.fillText("Breaker", cardX + this.MaincardWidth / 2 + 4, cardY );    
         }
       }
 
@@ -325,42 +325,40 @@ export class Cards {
     for(let i = 0 ; i < 3 ; i++){// enemy kartların iconları
       let j = 0;
       ctx.fillStyle = "black";
-      ctx.font = "10px Arial";
+      ctx.font = "20px Arial";
       const cardX = this.EnemystartX + i * (this.EnemycardWidth + this.EnemycardSpacing);
 
       
       for(; j < 3; j++) {
         if(this.enemyCards[i][j] === 1){
           const cardY = this.EnemystartY + (this.EnemycardHeight / 3) * j + (this.EnemycardHeight / 3) / 2;
-          ctx.fillText("Body", cardX + this.EnemycardWidth / 2 + 2, cardY );
+          ctx.fillText("Body", cardX + this.EnemycardWidth / 2 + 4, cardY );
         }
       }
       for( ; j < 6; j++) {
         
         if(this.enemyCards[i][j] === 1){   // sword gelirse
           const cardY = this.EnemystartY + (this.EnemycardHeight / 3) * (j - 3) + (this.EnemycardHeight / 3) / 2;
-          ctx.fillText("sword", cardX  + 2, cardY );    
+          ctx.fillText("Sword", cardX  + 4, cardY );    
         }
          if(this.enemyCards[i][j] === 3){   // shield gelirse
           const cardY = this.EnemystartY + (this.EnemycardHeight / 3) * (j - 3) + (this.EnemycardHeight / 3) / 2;
-          ctx.fillText("shield", cardX + 2, cardY );    
+          ctx.fillText("Shield", cardX + 4, cardY );    
         }
          if(this.enemyCards[i][j] === 5){   // breaker gelirse
-          ctx.font = "8px Arial";
+          ctx.font = "16px Arial";
           const cardY = this.EnemystartY + (this.EnemycardHeight / 3) * (j - 3) + (this.EnemycardHeight / 3) / 2;
-          ctx.fillText("breaker", cardX + 2, cardY );    
+          ctx.fillText("Breaker", cardX + 4, cardY );    
         }
       }
 
     }
     
-   
-    
     for(let i = 0 ; i < 3 ; i++){// player kartların iconları
       let j = 0;
       ctx.fillStyle = "black";
-      ctx.font = "10px Arial";
-      const cardX = this.PlayerstartX + 230 - this.PlayercardWidth - 2 * this.PlayercardSpacing - i * (this.PlayercardWidth + this.PlayercardSpacing);
+      ctx.font = "20px Arial";
+      const cardX = this.PlayerstartX + 500 - this.PlayercardWidth - 4 * this.PlayercardSpacing - i * (this.PlayercardWidth + this.PlayercardSpacing);
 
       
       for(; j < 3; j++) {
@@ -373,16 +371,16 @@ export class Cards {
         
         if(this.playerCards[i][j] === 1){   // sword gelirse
           const cardY = this.PlayerstartY + (this.PlayercardHeight / 3) * (j - 3) + (this.PlayercardHeight / 3) / 2;
-          ctx.fillText("sword", cardX + this.PlayercardWidth / 2  + 2, cardY );    
+          ctx.fillText("Sword", cardX + this.PlayercardWidth / 2  , cardY );    
         }
          if(this.playerCards[i][j] === 3){   // shield gelirse
           const cardY = this.PlayerstartY + (this.PlayercardHeight / 3) * (j - 3) + (this.PlayercardHeight / 3) / 2;
-          ctx.fillText("shield", cardX + this.PlayercardWidth / 2  + 2, cardY );    
+          ctx.fillText("Shield", cardX + this.PlayercardWidth / 2  , cardY );    
         }
          if(this.playerCards[i][j] === 5){   // breaker gelirse
-          ctx.font = "8px Arial";
+          ctx.font = "16px Arial";
           const cardY = this.PlayerstartY + (this.PlayercardHeight / 3) * (j - 3) + (this.PlayercardHeight / 3) / 2;
-          ctx.fillText("breaker", cardX + this.PlayercardWidth / 2  + 2, cardY );    
+          ctx.fillText("Breaker", cardX + this.PlayercardWidth / 2 -2 , cardY );    
         }
       }
 

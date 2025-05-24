@@ -1,12 +1,12 @@
 export class Player {
-  constructor(x = 280, y = 150) {
+  constructor(x = 560, y = 300) {
     this.x = x;
     this.y = y;
-    this.health = 20;
-    this.healthBarWidth = 200;
-    this.healthBarHeight = 25;
-    this.healthBarX = x - 162;
-    this.healthBarY = y - 100;
+    this.health = 40;
+    this.healthBarWidth = 400;
+    this.healthBarHeight = 50;
+    this.healthBarX = x - 324;
+    this.healthBarY = y - 200;
 
     // Health icon animasyon değişkenleri
     this.HealthIcon = new Image();
@@ -19,12 +19,12 @@ export class Player {
     this.HealthLastFrameTime = 0;
     this.HealthFrameDuration = 150;
     this.HealthPosX = this.healthBarX + this.healthBarWidth + 7;
-    this.HealthPosY = this.y - 100;
+    this.HealthPosY = this.y - 200;
   }
 
   drawPlayer(ctx) {
     ctx.fillStyle = "rgb(11, 79, 11)";
-    ctx.fillRect(this.x, this.y, 70, 80);
+    ctx.fillRect(this.x, this.y, 140, 160);
   }
 
   drawHealthBar(ctx) {
@@ -49,7 +49,7 @@ export class Player {
       this.HealthRowIndex * this.HealthFrameHeight,    // Kaynak Y (satır indexine göre)
       this.HealthFrameWidth, this.HealthFrameHeight,   // Kaynak genişlik ve yükseklik
       this.HealthPosX, this.HealthPosY,                // Tuvalde çizilecek X ve Y
-      32, 32                                           // Çizilecek genişlik ve yükseklik
+      64, 64                                           // Çizilecek genişlik ve yükseklik
     );
   }
 }
