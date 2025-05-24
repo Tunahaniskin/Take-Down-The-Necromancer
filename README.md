@@ -1,3 +1,3 @@
 https://bixbybubbly.itch.io/heart-meter
 
-https://gelidus-canimons.itch.io/rpg-shields-pack
+https://furkanduran.itch.io/durkans-100-item-pack
