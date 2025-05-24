@@ -56,4 +56,13 @@ export class Player {
       64, 64                                           // Çizilecek genişlik ve yükseklik
     );
   }
+
+  drawComboStatus(ctx) {
+    ctx.fillStyle = "black";
+    ctx.font = "40px Arial";
+    ctx.fillText("Combo : " + this.combo, this.x - 200, this.y - 40 );
+
+    
+  }
+
 }

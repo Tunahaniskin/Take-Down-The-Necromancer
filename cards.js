@@ -63,7 +63,16 @@ export class Cards {
       }
     });
 
-
+      this.bodyImg = new Image();
+      this.bodyImg.src = "Body.png";
+      this.swordImgRight = new Image();
+      this.swordImgRight.src = "SwordRight.png";
+      this.swordImgLeft = new Image();
+      this.swordImgLeft.src = "SwordLeft.png";
+      this.shieldImg = new Image();
+      this.shieldImg.src = "Shield.png";
+      this.breakerImg = new Image();
+      this.breakerImg.src = "Breaker.png";
 
 
 
@@ -294,61 +303,59 @@ export class Cards {
      
     for(let i = 0 ; i < 5 ; i++) { // main kartların iconlarını çizdirme
       let j = 0;
-      ctx.fillStyle = "black";
-      ctx.font = "28px Arial";
+     
       const cardX = this.MainstartX + i * (this.MaincardWidth + this.MaincardSpacing);
 
       
       for(; j < 3; j++) {
         if(this.mainCards[i][j] === 1){ // boyd çizdirme
           const cardY = this.MainstartY + (this.MaincardHeight / 3) * j + (this.MaincardHeight / 3) / 2;
-          ctx.fillText("Body", cardX + 2, cardY );
+          ctx.drawImage(this.bodyImg, cardX + 2, cardY - 35, 70, 70 );
         }
       }
       for( ; j < 6; j++) {
         if(this.mainCards[i][j] === 1){   // sword gelirse
           const cardY = this.MainstartY + (this.MaincardHeight / 3) * (j - 3) + (this.MaincardHeight / 3) / 2;
-          ctx.fillText("Sword", cardX + this.MaincardWidth / 2 + 1, cardY );    
+          ctx.drawImage(this.swordImgRight, cardX + this.MaincardWidth / 2 -2, cardY - 50, 80, 80 );    
         }
          if(this.mainCards[i][j] === 3){   // shield gelirse
           const cardY = this.MainstartY + (this.MaincardHeight / 3) * (j - 3) + (this.MaincardHeight / 3) / 2;
-          ctx.fillText("Shield", cardX + this.MaincardWidth / 2 + 2 , cardY );    
+          ctx.drawImage(this.shieldImg, cardX + this.MaincardWidth / 2 + 10, cardY - 25, 50, 50);  
         }
          if(this.mainCards[i][j] === 5){   // breaker gelirse
-          ctx.font = "20px Arial";
+         
           const cardY = this.MainstartY + (this.MaincardHeight / 3) * (j - 3) + (this.MaincardHeight / 3) / 2;
-          ctx.fillText("Breaker", cardX + this.MaincardWidth / 2 + 2, cardY );    
+          ctx.drawImage(this.breakerImg, cardX + this.MaincardWidth / 2 + 10, cardY - 25, 50, 50 );    
         }
       }
 
     }
     for(let i = 0 ; i < 3 ; i++){// enemy kartların iconları
       let j = 0;
-      ctx.fillStyle = "black";
-      ctx.font = "20px Arial";
+     
       const cardX = this.EnemystartX + i * (this.EnemycardWidth + this.EnemycardSpacing);
 
       
       for(; j < 3; j++) {
         if(this.enemyCards[i][j] === 1){
           const cardY = this.EnemystartY + (this.EnemycardHeight / 3) * j + (this.EnemycardHeight / 3) / 2;
-          ctx.fillText("Body", cardX + this.EnemycardWidth / 2 + 4, cardY );
+          ctx.drawImage(this.bodyImg, cardX + this.EnemycardWidth / 2 + 4, cardY - 25, 50, 50 );
         }
       }
       for( ; j < 6; j++) {
         
         if(this.enemyCards[i][j] === 1){   // sword gelirse
           const cardY = this.EnemystartY + (this.EnemycardHeight / 3) * (j - 3) + (this.EnemycardHeight / 3) / 2;
-          ctx.fillText("Sword", cardX  + 4, cardY );    
+          ctx.drawImage(this.swordImgLeft, cardX  + 4, cardY - 30 , 60, 60 );    
         }
          if(this.enemyCards[i][j] === 3){   // shield gelirse
           const cardY = this.EnemystartY + (this.EnemycardHeight / 3) * (j - 3) + (this.EnemycardHeight / 3) / 2;
-          ctx.fillText("Shield", cardX + 4, cardY );    
+          ctx.drawImage(this.shieldImg, cardX + 10, cardY - 22  , 45, 45);  
         }
          if(this.enemyCards[i][j] === 5){   // breaker gelirse
-          ctx.font = "16px Arial";
+          
           const cardY = this.EnemystartY + (this.EnemycardHeight / 3) * (j - 3) + (this.EnemycardHeight / 3) / 2;
-          ctx.fillText("Breaker", cardX + 4, cardY );    
+          ctx.drawImage(this.breakerImg, cardX + 4, cardY - 22, 45, 45 );    
         }
       }
 
@@ -356,31 +363,30 @@ export class Cards {
     
     for(let i = 0 ; i < 3 ; i++){// player kartların iconları
       let j = 0;
-      ctx.fillStyle = "black";
-      ctx.font = "20px Arial";
+     
       const cardX = this.PlayerstartX + 500 - this.PlayercardWidth - 4 * this.PlayercardSpacing - i * (this.PlayercardWidth + this.PlayercardSpacing);
 
       
       for(; j < 3; j++) {
         if(this.playerCards[i][j] === 1){ // body çizdirme
           const cardY = this.PlayerstartY + (this.PlayercardHeight / 3) * j + (this.PlayercardHeight / 3) / 2;
-          ctx.fillText("Body", cardX , cardY );
+          ctx.drawImage(this.bodyImg, cardX , cardY - 25 , 50, 50);
         }
       }
       for( ; j < 6; j++) {
         
         if(this.playerCards[i][j] === 1){   // sword gelirse
           const cardY = this.PlayerstartY + (this.PlayercardHeight / 3) * (j - 3) + (this.PlayercardHeight / 3) / 2;
-          ctx.fillText("Sword", cardX + this.PlayercardWidth / 2  , cardY );    
+          ctx.drawImage(this.swordImgRight, cardX + this.PlayercardWidth / 2 - 5  , cardY - 30, 60, 60 );    
         }
          if(this.playerCards[i][j] === 3){   // shield gelirse
           const cardY = this.PlayerstartY + (this.PlayercardHeight / 3) * (j - 3) + (this.PlayercardHeight / 3) / 2;
-          ctx.fillText("Shield", cardX + this.PlayercardWidth / 2  , cardY );    
+          ctx.drawImage(this.shieldImg, cardX + this.PlayercardWidth / 2  , cardY - 22 , 45, 45);    
         }
          if(this.playerCards[i][j] === 5){   // breaker gelirse
-          ctx.font = "16px Arial";
+         
           const cardY = this.PlayerstartY + (this.PlayercardHeight / 3) * (j - 3) + (this.PlayercardHeight / 3) / 2;
-          ctx.fillText("Breaker", cardX + this.PlayercardWidth / 2 -2 , cardY );    
+          ctx.drawImage(this.breakerImg, cardX + this.PlayercardWidth / 2 -2 , cardY - 22, 45, 45 );    
         }
       }
 

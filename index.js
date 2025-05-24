@@ -26,9 +26,11 @@ document.getElementById("attackBtn").onclick = () => battle(ctx);
 
 function drawAll(timestamp) {
 ctx.clearRect(0, 0, canvas.width, canvas.height);
+document.getElementById("attackBtn").onclick = () => battle(ctx);
   player.drawPlayer(ctx);
   player.drawHealthBar(ctx);
   player.drawHealthIcon(ctx, timestamp);
+  player.drawComboStatus(ctx);
   
 
   enemy.drawEnemy(ctx);
@@ -116,6 +118,7 @@ function battle(ctx){
               enemy.combo = 0; // enemy combo sıfırlanır
               if(TempPlayerHealth !== player.health) { // ikisinin de hasar aldığı durumda player combosunu sıfırlıyoruz
                player.combo = 0; // player combo sıfırlanır
+               enemy.combo = 0; // enemy combo sıfırlanır
               }
               
             }
@@ -132,6 +135,7 @@ function battle(ctx){
               enemy.combo = 0; // enemy combo sıfırlanır
               if(TempPlayerHealth !== player.health) { // ikisinin de hasar aldığı durumda player combosunu sıfırlıyoruz
                player.combo = 0; // player combo sıfırlanır
+               enemy.combo = 0; // enemy combo sıfırlanır
               }
               
             }

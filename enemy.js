@@ -59,7 +59,7 @@ export class Enemy {
   drawComboStatus(ctx) {
     ctx.fillStyle = "black";
     ctx.font = "40px Arial";
-    ctx.fillText("Combo : ", this.x + 180, this.y - 40 );
+    ctx.fillText("Combo : " + this.combo, this.x + 180, this.y - 40 );
 
     
   }
