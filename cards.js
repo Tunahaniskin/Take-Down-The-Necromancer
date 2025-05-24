@@ -308,16 +308,16 @@ export class Cards {
       for( ; j < 6; j++) {
         if(this.mainCards[i][j] === 1){   // sword gelirse
           const cardY = this.MainstartY + (this.MaincardHeight / 3) * (j - 3) + (this.MaincardHeight / 3) / 2;
-          ctx.fillText("Sword", cardX + this.MaincardWidth / 2 + 4, cardY );    
+          ctx.fillText("Sword", cardX + this.MaincardWidth / 2 + 1, cardY );    
         }
          if(this.mainCards[i][j] === 3){   // shield gelirse
           const cardY = this.MainstartY + (this.MaincardHeight / 3) * (j - 3) + (this.MaincardHeight / 3) / 2;
-          ctx.fillText("Shield", cardX + this.MaincardWidth / 2 + 4, cardY );    
+          ctx.fillText("Shield", cardX + this.MaincardWidth / 2 + 2 , cardY );    
         }
          if(this.mainCards[i][j] === 5){   // breaker gelirse
           ctx.font = "20px Arial";
           const cardY = this.MainstartY + (this.MaincardHeight / 3) * (j - 3) + (this.MaincardHeight / 3) / 2;
-          ctx.fillText("Breaker", cardX + this.MaincardWidth / 2 + 4, cardY );    
+          ctx.fillText("Breaker", cardX + this.MaincardWidth / 2 + 2, cardY );    
         }
       }
 
@@ -388,10 +388,13 @@ export class Cards {
    
   }
 
+
+
   // Her round başında çağır:
-  resetPlayerCardsForNewRound() {
+  resetCardsForNewRound(ctx) {
     for (let i = 0; i < 3; i++) {
       this.playerCards[i] = new Array(6).fill(0);
+      this.generateCardsBarIcon(ctx);
     }
     this.playerCardSelectCount = 0;
   }

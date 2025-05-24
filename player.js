@@ -2,11 +2,12 @@ export class Player {
   constructor(x = 560, y = 300) {
     this.x = x;
     this.y = y;
-    this.health = 40;
+    this.health = 20;
     this.healthBarWidth = 400;
     this.healthBarHeight = 50;
     this.healthBarX = x - 324;
     this.healthBarY = y - 200;
+    this.combo = 0;
 
     // Health icon animasyon değişkenleri
     this.HealthIcon = new Image();
@@ -30,6 +31,9 @@ export class Player {
   drawHealthBar(ctx) {
     ctx.fillStyle = "rgb(108, 100, 71)";
     ctx.fillRect(this.healthBarX, this.healthBarY, this.healthBarWidth, this.healthBarHeight);
+    ctx.fillStyle = "black";
+      ctx.font = "28px Arial";
+    ctx.fillText(this.health, this.x + 20 , this.healthBarY + 30);
   }
 
   drawHealthIcon(ctx, timestamp) {

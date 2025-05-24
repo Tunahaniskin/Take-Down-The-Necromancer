@@ -2,11 +2,12 @@ export class Enemy {
   constructor(x = 780, y = 300) {
     this.x = x;
     this.y = y;
-    this.health = 40;
+    this.health = 20;
     this.healthBarWidth = 400;
     this.healthBarHeight = 50;
     this.healthBarX = x;
     this.healthBarY = y - 200;
+    this.combo = 0;
 
     // Health icon animasyon değişkenleri
     this.HealthIcon = new Image();
@@ -28,6 +29,9 @@ export class Enemy {
   drawHealthBar(ctx) {
     ctx.fillStyle = "rgb(108, 100, 71)";
     ctx.fillRect(this.x + 64 , this.y - 200, this.healthBarWidth , this.healthBarHeight);
+    ctx.fillStyle = "black";
+    ctx.font = "28px Arial";
+    ctx.fillText(this.health, this.x + 66, this.y - 170);
   }
   drawHealthIcon(ctx,timestamp) {
     //ctx.fillStyle = "red";
