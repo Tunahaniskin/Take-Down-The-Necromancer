@@ -9,7 +9,8 @@ function resizeCanvas() {
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
 }
-resizeCanvas();
+window.addEventListener('resize', resizeCanvas);
+resizeCanvas(); // sayfa açılır açılmaz çalıştır
 
 const player = new Player();
 const enemy = new Enemy();
