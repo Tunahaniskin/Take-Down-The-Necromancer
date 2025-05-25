@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>projem</title>
+    <title>Game</title>
 
 <style>
    html, body {
@@ -31,9 +31,29 @@
 <body>
 
     <canvas id="gameCanvas"></canvas>
-<button id="attackBtn" style="position:absolute; top:20px; right:20px; z-index:10;">Saldır</button>
+<div style="width:100%; display:flex; justify-content:center; position:absolute; top:200px;">
+    <button id="attackBtn">Attack</button>
+</div>
 
-    <script type="module" src="index.js"></script>
+<div style="width:100%; display:flex; justify-content:center; position:absolute; top:150px;">
+    <button id="restartBtn">Restart the game</button>
+</div>
+
+<div style="width:100%; display:flex; justify-content:center; position:absolute; top:300px;">
+    <button id="startGame">Start The Game</button>
+</div>
+
+
+<audio id="backgroundMusic" loop>
+  <source src="ses.mp3" type="audio/mpeg">
+
+</audio>
+
+<audio id="actionMusic">
+  <source src="action.mp3" type="audio/mpeg">
+
+
+<script type="module" src="index.js"></script>
 
 </body>
 </html>

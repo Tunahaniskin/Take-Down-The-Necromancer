@@ -8,6 +8,7 @@ export class Enemy {
     this.healthBarX = x;
     this.healthBarY = y - 200;
     this.combo = 0;
+    this.statu = "idle"; 
 
     // Health icon animasyon değişkenleri
     this.HealthIcon = new Image();
@@ -21,11 +22,47 @@ export class Enemy {
     this.HealthFrameDuration = 150;
     this.HealthPosX = this.healthBarX;
     this.HealthPosY = this.y - 200;
+
+    // Enemy Idle animasyon değişkenleri
+    this.IdleEnemy = new Image();
+    this.IdleEnemy.src = "EnemyIdle.png"; // sprite sheet dosyan buraya yüklü olacak
+    this.IdleFrameWidth = 160;   // her karenin genişliği
+    this.IdleFrameHeight = 128;  // her karenin yüksekliği
+    this.IdleFrameCount = 8;
+    this.IdleCurrentFrame = 0;
+    this.IdleLastFrameTime = 0;
+    this.IdleFrameDuration = 150; // her karede kalma süresi (ms)
+
+   
+
+   
+    
+    
+
   }
-  drawEnemy(ctx) {
-    ctx.fillStyle = "rgb(102, 11, 11)";
-    ctx.fillRect(this.x, this.y, 140, 160);
+  drawEnemyIdle(ctx, timestamp) {
+    
+    // zamanı kontrol et, yeni kareye geç
+    if (timestamp - this.IdleLastFrameTime > this.IdleFrameDuration) {
+      this.IdleCurrentFrame--; 
+      if (this.IdleCurrentFrame < 0) {
+        this.IdleCurrentFrame = this.IdleFrameCount - 1;
+      }
+      this.IdleLastFrameTime = timestamp;
+    }
+
+    // animasyon karesini sprite sheet'ten çiz
+    ctx.drawImage(
+      
+      this.IdleEnemy,
+      this.IdleCurrentFrame * this.IdleFrameWidth, 0,       // kaynak x, y
+      this.IdleFrameWidth, this.IdleFrameHeight,            // kaynak genişlik, yükseklik
+      this.x - 175, this.y - 260,                         // hedef x, y
+      500, 500         // hedef genişlik, yükseklik
+    );
   }
+
+  
   drawHealthBar(ctx) {
     ctx.fillStyle = "rgb(108, 100, 71)";
     ctx.fillRect(this.x + 64 , this.y - 200, this.healthBarWidth , this.healthBarHeight);

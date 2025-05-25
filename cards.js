@@ -56,7 +56,7 @@ export class Cards {
             break;
           }
           this.playerCards[this.playerCardSelectCount] = this.mainCards[i];
-          this.mainCards[i] = 0// Seçilen kartı sıfırla
+          this.mainCards[i] = [0, 0, 0, 0, 0, 0]; // Seçilen kartı sıfırla
           this.playerCardSelectCount++;
             break;
               }
