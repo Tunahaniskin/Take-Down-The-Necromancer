@@ -11,21 +11,23 @@ function resizeCanvas() {
   canvas.height = window.innerHeight;
 }
 window.addEventListener('resize', resizeCanvas);
-resizeCanvas(); // sayfa açılır açılmaz çalıştır
+resizeCanvas();
 
 const player = new Player();
 const enemy = new Enemy();
 const cards = new Cards();
 
+const backgroundImage = new Image();
+backgroundImage.src = "backgroundImage.png";
+
 const backgroundMusic = document.getElementById("backgroundMusic");
-backgroundMusic.volume = 0.3; // Müzik ses seviyesi
+backgroundMusic.volume = 0.2; // Müzik ses seviyesi
 
 
 cards.generateCardsBarIcon();
-
 cards.resetCardsForNewRound(ctx);
-document.getElementById("attackBtn").onclick = () => battle(ctx);
 
+document.getElementById("attackBtn").onclick = () => battle(ctx);
 document.getElementById("startGame").style.visibility = "visible";
 document.getElementById("startGame").onclick = () => requestAnimationFrame(gameLoop);
 document.getElementById("startGame").addEventListener("click", () => {
@@ -38,9 +40,11 @@ document.getElementById("restartBtn").style.visibility = "hidden";
 
   
  
+function gameLoop(timestamp) { //oyun döngüsü
 
-async  function gameLoop(timestamp) {
+
 ctx.clearRect(0, 0, canvas.width, canvas.height);
+
 document.getElementById("attackBtn").style.visibility = "visible";
 document.getElementById("restartBtn").style.visibility = "hidden";
 document.getElementById("startGame").style.visibility = "hidden";
@@ -50,12 +54,6 @@ document.getElementById("attackBtn").addEventListener("click", () => {
     console.error("Müzik oynatılamadı:", error);
   });
 });
-
-
-
-
-
-
 
 document.getElementById("attackBtn").onclick = () => {
   isBattleActive = true;
@@ -91,6 +89,8 @@ document.getElementById("restartBtn").onclick = () => {
         
     return;
   }
+
+  ctx.drawImage(backgroundImage, 0, 0, canvas.width, canvas.height);  
 
   player.drawPlayerIdle(ctx,timestamp);
   
