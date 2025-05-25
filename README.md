@@ -49,6 +49,11 @@ Bu proje, tarayıcı üzerinden oynanabilen, strateji ve şansa dayalı bir kart
 ---
 ## Oyundan Görseller
 
+![Ekran görüntüsü 2025-05-25 190757](https://github.com/user-attachments/assets/54f8c864-f496-4595-8724-c8983c3a6356)
+
+![Ekran görüntüsü 2025-05-25 192820](https://github.com/user-attachments/assets/1ed9656a-175b-4900-8483-671e7aecddc9)
+
+![Ekran görüntüsü 2025-05-25 192855](https://github.com/user-attachments/assets/0e834d1d-6557-4ab8-b09b-72f9f21481eb)
 
 
 
