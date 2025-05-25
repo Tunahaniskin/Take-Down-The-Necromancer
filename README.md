@@ -4,7 +4,7 @@
 Throw Down The Gauntlet: https://krons.itch.io/throw-down-the-gauntlet
 
 ## 🎮 Açıklama  
-Bu proje, tarayıcı üzerinden oynanabilen, strateji ve şansa dayalı bir kart oyunudur. Oyuncular, kartlar seçerek düşmanla karşı karşıya gelir ve savaşa girerler.
+Bu proje, tarayıcı üzerinden oynanabilen, strateji ve şansa dayalı bir kart oyunudur. Oyuncu, kartlar seçerek düşmanla karşı karşıya gelir ve savaşa girerler.
 
 ---
 
@@ -32,10 +32,11 @@ Bu proje, tarayıcı üzerinden oynanabilen, strateji ve şansa dayalı bir kart
 
 ## Kartlar Üzerindeki Simgeler Nedir?
 
-1. Zırh gibi görünen simge sizin bedeninizi temsil eder sadece bedeninizin bulunduğu satıralrdan hasar alabilirsiniz.
+1. Zırh gibi görünen simge sizin bedeninizi temsil eder sadece bedeninizin bulunduğu satırlardan hasar alabilirsiniz.
 2. Kılıç, kalkan harici her şeye hasar verir ve kendisine gelen hiçbir hasarı engelleyemez.
 3. Kalkan, Herhangi bir hasar veremez kılıçtan gelen hasarı engeller fakat kalkan kırma kalkana hasar verir.
 4. Kırık kalkan olarak gözüken simge Kalkan kırmadır, kalkan kırma sadece kalkana hasar verir ve kendisine gelen herhangi bir hasarı engelleyemez.
+5. Hasar verebilenler sadece bulunduğu satırda hasarı engelleyebilecek bir şey olmadığı ve aynı satırda bir beden varsa hasar verebilir
 
 ---
 
